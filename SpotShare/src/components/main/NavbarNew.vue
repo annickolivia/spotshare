@@ -1,10 +1,9 @@
 <template>
     <nav class="shadow">
         <div class="right">
-            <router-link to="/acceuil"><img src="../../assets/back.svg" alt=""></router-link>
+            <router-link to="/accueil"><img src="../../assets/back.svg" alt=""></router-link>
             <h1>Nouvelle Publication</h1>
         </div>
-        <img src="../../assets/next.svg" alt="">
     </nav>
 </template>
        
@@ -35,5 +34,6 @@ nav {
 .right {
     display: flex;
     justify-content: start;
+    align-items: center;
 }
 </style>

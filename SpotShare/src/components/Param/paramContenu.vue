@@ -1,9 +1,9 @@
 <template>
     <div class="contenu">
         <div class="contenu1">
-            <router-link to="/acceuil"><img src="../../assets/homep.svg" alt=""></router-link>
-            <router-link to="/acceuil">
-                <p>Acceuil</p>
+            <router-link to="/accueil"><img src="../../assets/homep.svg" alt=""></router-link>
+            <router-link to="/accueil">
+                <p>Accueil</p>
             </router-link>
         </div>
         <div class="contenu1">
@@ -54,6 +54,7 @@ export default {
     justify-content: center;
     align-items: center;
     margin-top: 100px;
+    width: calc(100vh - 100px);
 }
 
 .contenu1 {

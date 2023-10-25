@@ -1,12 +1,8 @@
 <template>
     <navbar />
     <div class="head ">
-        <img src="../../assets/avatar.jpg" alt="" class="avatar">
-        <p>Olivia Manoa</p>
-        <div class="icon">
-            <img src="../../assets/Grid.svg" alt="" class="grid">
-            <img src="../../assets/save.svg" alt="" class="save">
-        </div>
+        <img :src="profilPic" alt="" class="avatar">
+        <p>{{ name }}</p>
         <PostsSaveComponent />
     </div>
     <NavbarGuide />
@@ -15,13 +11,25 @@
 import navbar from '../../components/main/NavbarProfil.vue';
 import NavbarGuide from '../../components/navbar/NavbarGuideComponent.vue';
 import PostsSaveComponent from '../../components/posts/postsSave.vue';
+import { post } from "./../../data/post"
+
 export default {
     name: 'HomeView',
     components: {
         NavbarGuide,
         navbar,
         PostsSaveComponent
-    }
+    },
+    data() {
+        return {
+            name: "",
+            profilPic: ""
+        }
+    },
+    mounted() {
+        this.name = localStorage.getItem('name')
+        this.profilPic = post.find(item => item.name === this.name).profilePicture;
+    },
 }
 </script>
 <style scoped>
@@ -35,6 +43,8 @@ export default {
 }
 
 .avatar {
+    object-fit: cover;
+
     border: solid 4px #49BFC1;
     width: 150px;
     height: 150px;

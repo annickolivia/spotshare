@@ -1,7 +1,7 @@
 <template>
     <div class="card shadow">
-        <img :src="image" alt="" class="cover">
-        <div class="head">
+        <img :src="image" alt="" class="cover" @click="openPost">
+        <div class="head" @click="viewUser">
             <img :src="profilePicture" class="avatar left" alt="">
             <div class="right">
                 <p class="username">{{ name }}</p>
@@ -39,12 +39,25 @@ export default {
         if (this.isLiked == true) this.isLikedData = true
     },
     methods: {
+        viewUser() {
+            localStorage.setItem('name', this.name)
+            location.href = "/profil"
+        },
         like() {
             if (this.isLikedData == true) {
                 this.isLikedData = false
             } else {
                 this.isLikedData = true
             }
+        },
+        openPost() {
+            localStorage.setItem('name', this.name)
+            localStorage.setItem('content', this.content)
+            localStorage.setItem('place', this.place)
+            localStorage.setItem('profilePicture', this.profilePicture)
+            localStorage.setItem('image', this.image)
+            localStorage.setItem('isLiked', this.isLikedData)
+            location.href = '/post'
         }
     }
 }
@@ -80,6 +93,8 @@ export default {
     border-radius: 50%;
     border: solid 4px #49BFC1;
     margin-right: 16px;
+    object-fit: cover;
+
 }
 
 .head {

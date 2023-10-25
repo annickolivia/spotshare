@@ -1,35 +1,111 @@
 <template>
     <NavbarNew />
-    <div class="cover">
-        <img src="../../assets/italie.jpg" alt="" class="image">
+    <div class="form">
+        <textarea rows="4" name="" id=""></textarea>
+        <button>Publier</button>
+        <input id="fileInput" type="file" ref="fileInput" @change="onFileChange" multiple accept="image/*" />
+        <label for="fileInput" class="inputFile">
+            Choisir des images
+        </label>
+        <div v-if="selectedImages.length > 0">
+            <div class="selectedImages">
+                <img v-for="(image, index) in selectedImages" :key="index" :src="image"
+                    style="max-width: 200px; max-height: 200px; margin: 10px 0;" />
+            </div>
+        </div>
     </div>
-    <galerieComponent />
 </template>
 
 <script>
 import NavbarNew from '../../components/main/NavbarNew.vue'
-import galerieComponent from '../../components/galerie/galerieComponent.vue';
 export default {
     components: {
         NavbarNew,
-        galerieComponent
 
+    },
+    data() {
+        return {
+            selectedImages: []
+        };
+    },
+    methods: {
+        onFileChange(e) {
+            const files = e.target.files;
+            if (files) {
+                for (let i = 0; i < files.length; i++) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        this.selectedImages.push(e.target.result);
+                    };
+                    reader.readAsDataURL(files[i]);
+                }
+            }
+        }
     }
 }
 
 </script>
 <style scoped>
-.cover {
+.form {
+    padding-top: 100px;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
+    height: calc(100vh - 100px);
+    overflow-x: scroll;
+}
+
+#fileInput {
+    display: none;
+}
+
+button,
+.inputFile {
+    width: 85%;
+    width: 85%;
+    min-height: 40px;
+    font-size: 20px;
+    background-color: #49bfc1;
+    border: none;
+    color: white;
+    margin-top: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: ease all .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputFile {
+    background-color: #9df3f5;
+    color: black;
+
+}
+
+button:hover {
+    background-color: #3c999b;
+}
+
+textarea {
+    width: 85%;
+    padding: 16px;
+    font-size: 20px;
+    min-height: 150px;
+}
+
+.selectedImages {
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
     justify-content: center;
 }
 
-.image {
-    width: 90%;
-    height: 50vh;
+.selectedImages img {
+    margin: 8px 8px 0 !important;
+    aspect-ratio: 1/1;
     object-fit: cover;
-    margin-top: 100px;
+    width: calc(50% - 16px);
 }
 </style>

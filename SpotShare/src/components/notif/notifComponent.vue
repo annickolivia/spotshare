@@ -20,7 +20,7 @@ export default {
     width: 100%;
     height: 100px;
     width: 100%;
-    border: solid 2px #49BFC1;
+    border-top: solid 2px #49BFC1;
 }
 
 .avatar {

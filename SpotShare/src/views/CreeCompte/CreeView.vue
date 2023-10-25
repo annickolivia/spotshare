@@ -1,23 +1,22 @@
 <template>
     <div class="debut">
         <img src="../../assets/logo3.png" alt="">
-    </div>
+        <div class="login">
+            <input :class="{ valide: isValidName == true, inValide: isValidName == false }" class="input" v-model="name"
+                placeholder="Nom " type="text" name="name" required="">
 
+            <input :class="{ valide: isValidEmail == true, inValide: isValidEmail == false }" v-model="email" class="input"
+                placeholder=" Email" type="email" name="email" required="">
 
-    <div class="login">
-        <input :class="{ valide: isValidName == true, inValide: isValidName == false }" class="input" v-model="name"
-            placeholder="Nom " type="text" name="name" required="">
+            <input :class="{ valide: isStrongPassword == true, inValide: isStrongPassword == false }" v-model="password"
+                class="input" placeholder="Mot de passe" type="" name="pswd" required="">
 
-        <input :class="{ valide: isValidEmail == true, inValide: isValidEmail == false }" v-model="email" class="input"
-            placeholder=" Email" type="email" name="email" required="">
+            <input :class="{ valide: isPasswordConfirmed == true, inValide: isPasswordConfirmed == false }"
+                v-model="confirmpassword" class="input" placeholder="Confirmation de mot passe" type="" name="pswd"
+                required="">
 
-        <input :class="{ valide: isStrongPassword == true, inValide: isStrongPassword == false }" v-model="password"
-            class="input" placeholder="Mot de passe" type="" name="pswd" required="">
-
-        <input :class="{ valide: isPasswordConfirmed == true, inValide: isPasswordConfirmed == false }"
-            v-model="confirmpassword" class="input" placeholder="Confirmation de mot passe" type="" name="pswd" required="">
-
-        <input type="submit" value="Crée le compte" @click="CreeCompte">
+            <input type="submit" value="Crée le compte" @click="CreeCompte">
+        </div>
     </div>
 </template>
 
@@ -61,6 +60,8 @@ const confirmpassword = ref('');
 
 function CreeCompte() {
     startValidation.value = true;
+    location.href = "/accueil"
+
 }
 const isValidEmail = computed(() => {
     return startValidation.value ? /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email.value) : null;
@@ -86,6 +87,8 @@ const isValidName = computed(() => {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
+    width: 100%;
 }
 
 img {
@@ -106,7 +109,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    width: 100%;
 
 }
 
@@ -153,4 +156,5 @@ input[type="submit"]:active {
 
 p {
     color: red;
-}</style>
+}
+</style>

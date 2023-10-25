@@ -3,7 +3,7 @@ import LoginView from "../views/login/LoginView.vue"
 import DebutView from "../views/home/DebutView.vue"
 import CreeView from "../views/CreeCompte/CreeView.vue"
 import EntrerProfil from "../views/EntrerProfil/EntrerProfil.vue"
-import AcceuilView from "../views/Acceuil/AcceuilView.vue"
+import AccueilView from "../views/Accueil/AccueilView.vue"
 import TestView from "../views/test/test.vue"
 import profilView from "../views/profil/ProfilView.vue"
 import postView from "../views/postView/PostView.vue"
@@ -42,9 +42,9 @@ const router = createRouter({
       component: EntrerProfil
     },
     {
-      path: '/acceuil',
-      name: 'acceuil',
-      component: AcceuilView
+      path: '/accueil',
+      name: 'accueil',
+      component: AccueilView
     },
     {
       path: '/profil',
