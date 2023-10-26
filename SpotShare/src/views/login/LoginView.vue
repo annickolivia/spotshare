@@ -12,7 +12,7 @@
       <input :class="{ valide: isStrongPassword == true, inValide: isStrongPassword == false }" v-model="password"
         class="input" placeholder="Mot de passe" type="password" name="pswd" required="">
 
-      <router-link to="/accueil">
+      <router-link class="lien" to="/accueil">
         <input type="submit" value="Se connecter">
       </router-link>
 
@@ -47,6 +47,14 @@ const isStrongPassword = computed(() => {
 
 
 <style scoped>
+.lien {
+  width: 89%;
+}
+
+.lien input {
+  width: 100% !important;
+}
+
 .debut {
   margin-top: 100px;
   display: flex;
