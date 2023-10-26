@@ -12,7 +12,9 @@
       <input :class="{ valide: isStrongPassword == true, inValide: isStrongPassword == false }" v-model="password"
         class="input" placeholder="Mot de passe" type="password" name="pswd" required="">
 
-      <input type="submit" value="Se connecter" @click="SeConnecter">
+      <router-link to="/accueil">
+        <input type="submit" value="Se connecter">
+      </router-link>
 
       <ButtonCree2 />
       <ButtonContinue2 />
@@ -32,9 +34,6 @@ const startValidation = ref(false);
 const email = ref('');
 const password = ref('');
 
-function SeConnecter() {
-  this.$router.push('/accueil')
-}
 const isValidEmail = computed(() => {
   return startValidation.value ? /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email.value) : null;
 });
