@@ -18,18 +18,7 @@
                 <p>Profil</p>
             </router-link>
         </div>
-        <div class="contenu1">
-            <router-link to="/profil"><img src="../../assets/savep.svg" alt=""></router-link>
-            <router-link to="/profil">
-                <p>Enregistrements</p>
-            </router-link>
-        </div>
-        <div class="contenu1">
-            <router-link to="/profil"><img src="../../assets/gridp.svg" alt=""></router-link>
-            <router-link to="/profil">
-                <p>Vos publications</p>
-            </router-link>
-        </div>
+
         <div class="contenu2">
             <router-link to="/connexion">
                 <p>Se déconnecter</p>

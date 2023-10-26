@@ -1,8 +1,9 @@
 <template>
   <div class="debut">
-    <!--   <h1>Spotshare</h1>-->
-    <img src="../../assets/logo3.png" alt="">
-
+    <div class="logo">
+      <img src="../../assets/ispm .webp" alt="" class="right">
+      <img src="../../assets/logo3.png" alt="" class="left">
+    </div>
     <div class="login">
 
       <input :class="{ valide: isValidEmail == true, inValide: isValidEmail == false }" v-model="email" class="input"
@@ -57,7 +58,17 @@ const isStrongPassword = computed(() => {
   width: 100%;
 }
 
-img {
+.logo {
+  display: flex;
+}
+
+.logo .right {
+  margin-right: 50px;
+  width: 100px;
+  height: 100px;
+}
+
+.logo .left {
   border-radius: 30px;
   width: 80px;
   height: 80px;

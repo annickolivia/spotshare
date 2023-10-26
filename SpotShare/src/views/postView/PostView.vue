@@ -12,7 +12,7 @@
         <p class="legend">{{ content }}</p>
         <div class="logo ">
             <img @click="like" v-if="isLiked == false" src="../../assets/like.svg" alt="">
-            <img @click="like" v-else src="../../assets/like.svg" class="like" alt="">
+            <img @click="like" v-else src="../../assets/likeclick.svg" alt="">
             <img src="../../assets/comment.svg" alt="">
         </div>
     </div>
@@ -96,10 +96,6 @@ export default {
     width: 100%;
     height: 60vh;
     object-fit: cover;
-}
-
-.like {
-    background-color: red;
 }
 
 .head {

@@ -1,7 +1,7 @@
 <template>
     <nav class="">
         <h1>SpotShare</h1>
-        <img src="../../assets/search.svg" alt="">
+        <router-link to="/search"><img src="../../assets/search.svg" alt=""></router-link>
     </nav>
 </template>
        

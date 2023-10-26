@@ -12,8 +12,8 @@
         <div class="logo ">
 
             <img @click="like" v-if="isLikedData == false" src="../../assets/like.svg" alt="">
-            <img @click="like" v-else src="../../assets/like.svg" class="like" alt="">
-            <img src="../../assets/comment.svg" alt="">
+            <img @click="like" v-else src="../../assets/likeclick.svg" alt="">
+            <router-link to="/post"><img src="../../assets/comment.svg" alt=""></router-link>
         </div>
     </div>
 </template>
@@ -65,10 +65,6 @@ export default {
 </script>
    
 <style scoped>
-.like {
-    background-color: red;
-}
-
 .card {
     width: calc(100vw - 64px);
     max-width: 536px;

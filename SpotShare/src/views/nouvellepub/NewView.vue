@@ -2,7 +2,7 @@
     <NavbarNew />
     <div class="form">
         <textarea rows="4" name="" id=""></textarea>
-        <button>Publier</button>
+        <router-link to="/accueil"><button>Publier</button></router-link>
         <input id="fileInput" type="file" ref="fileInput" @change="onFileChange" multiple accept="image/*" />
         <label for="fileInput" class="inputFile">
             Choisir des images
@@ -57,6 +57,23 @@ export default {
 
 #fileInput {
     display: none;
+}
+
+a {
+    text-decoration: none;
+    width: 85%;
+    width: 85%;
+    min-height: 40px;
+    font-size: 20px;
+    border: none;
+    color: white;
+    margin-top: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: ease all .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 button,

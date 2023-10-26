@@ -1,10 +1,10 @@
 <template>
     <nav class="shadow">
         <div class="right">
-            <img src="../../assets/back.svg" alt="">
+            <router-link to="/accueil"><img src="../../assets/back.svg" alt=""></router-link>
             <h1>Paramètre</h1>
         </div>
-        <img src="../../assets/search.svg" alt="">
+        <router-link to="/search"><img src="../../assets/search.svg" alt=""></router-link>
     </nav>
 </template>
        
@@ -35,5 +35,9 @@ nav {
 .right {
     display: flex;
     justify-content: start;
+}
+
+.right img {
+    margin-top: 10px;
 }
 </style>
