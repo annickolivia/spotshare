@@ -1,7 +1,7 @@
 <template>
   <div class="debut">
     <div class="logo">
-      <img src="../../assets/ispm .webp" alt="" class="right">
+      <img src="../../assets/ispm.webp" alt="" class="right">
       <img src="../../assets/logo3.png" alt="" class="left">
     </div>
     <div class="login">
@@ -54,7 +54,6 @@ const isStrongPassword = computed(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vw;
   width: 100%;
 }
 

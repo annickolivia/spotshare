@@ -2,7 +2,8 @@
     <NavbarNew />
     <div class="form">
         <textarea rows="4" name="" id=""></textarea>
-        <router-link to="/accueil"><button>Publier</button></router-link>
+        <button @click="publier" v-if="isLoading == false">Publier</button>
+        <button v-else>Loading...</button>
         <input id="fileInput" type="file" ref="fileInput" @change="onFileChange" multiple accept="image/*" />
         <label for="fileInput" class="inputFile">
             Choisir des images
@@ -25,7 +26,8 @@ export default {
     },
     data() {
         return {
-            selectedImages: []
+            selectedImages: [],
+            isLoading: false
         };
     },
     methods: {
@@ -40,6 +42,10 @@ export default {
                     reader.readAsDataURL(files[i]);
                 }
             }
+        },
+        publier() {
+            this.isLoading = true
+            setTimeout(() => location.href = "/accueil", 2000)
         }
     }
 }
@@ -61,13 +67,11 @@ export default {
 
 a {
     text-decoration: none;
-    width: 85%;
-    width: 85%;
+    width: 100%;
     min-height: 40px;
     font-size: 20px;
     border: none;
     color: white;
-    margin-top: 32px;
     border-radius: 8px;
     cursor: pointer;
     transition: ease all .3s;

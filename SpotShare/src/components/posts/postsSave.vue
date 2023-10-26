@@ -1,8 +1,6 @@
 <template>
     <div class="image">
-        <div v-for="(p, i) in publications" v-bind:key="i" class="item">
-            <img v-if="p.name == name" :src="p.image" alt="" @click="openPost(i)">
-        </div>
+        <img v-for="(p, i) in publications" v-bind:key="i" :src="p.image" alt="" @click="openPost(i)">
     </div>
 </template>
         
@@ -13,7 +11,7 @@ export default {
     name: 'PostsSaveComponent',
     data() {
         return {
-            publications: post,
+            publications: [],
             name: ""
         }
     },
@@ -21,7 +19,13 @@ export default {
         this.name = localStorage.getItem('name')
         this.publications = post
         console.log(this.name);
-        console.log(this.publications);
+        console.log(this.publications)
+        for (let i = 0; i < post.length; i++) {
+            if (post[i].name == this.name) {
+                this.publications.push(post[i])
+            }
+
+        }
     },
     methods: {
 
@@ -42,19 +46,12 @@ export default {
 <style scoped>
 .image {
     display: flex;
-    justify-content: flex-start;
     flex-wrap: wrap;
-    margin: 1rem 0 5rem 1.2rem;
-    max-width: 1300px;
 }
 
-
-.image img {
-    height: 100px;
-    width: 100px;
+img {
+    width: 200px;
+    height: 200px;
     object-fit: cover;
-    overflow: hidden;
-    flex-shrink: 0;
-    padding: .5rem;
 }
 </style>

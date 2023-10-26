@@ -21,7 +21,6 @@ import ButtonContinue from "../../components/Button/ButtonContinue.vue"
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
 }
 
 img {
