@@ -19,9 +19,10 @@
     <div class="commContainer">
         <div class="comments" v-for="com in comments" v-bind:key="com">
             <div class="contenu">
-                <img src="../../assets/anais.jpg" alt="" class="autre">
+                <img src="https://z-p3-scontent-jnb1-1.xx.fbcdn.net/v/t1.15752-9/396419828_868339181527056_1400916004187048578_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeElVIKPMYX8LMK3zdHJujxf_rhFUCrr_uL-uEVQKuv-4sizB7iDy4qnDiX5JeeUCnhd6Sz7ga2Ed5kbCcHRCq0f&_nc_ohc=59Vd2SBU-0sAX8o-wQh&_nc_ht=z-p3-scontent-jnb1-1.xx&oh=03_AdTS4rGtoDsNnNw9A2Fur20YJUV7WzpH3JiWz-h87ODBng&oe=65620DD4"
+                    alt="" class="autre">
                 <div class="groupe">
-                    <p class="name">Anaïs AA</p>
+                    <p class="name">Olivia Manoo</p>
                     <p class="commentaire">{{ com }}</p>
                 </div>
             </div>
@@ -72,7 +73,8 @@ export default {
         },
         viewUser() {
             localStorage.setItem('name', this.name)
-            location.href = "/profil"
+            this.$router.push('/profil');
+
         },
         post() {
 

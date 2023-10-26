@@ -20,7 +20,7 @@
         </div>
 
         <div class="contenu2">
-            <router-link to="/connexion">
+            <router-link to="/">
                 <p>Se déconnecter</p>
             </router-link>
             <router-link to="/connexion">

@@ -1,15 +1,21 @@
 <template>
     <div class="head">
-        <img src="../../assets/italie.jpg" class="avatar left" alt="">
+        <img :src="profilePicture" class="avatar left" alt="">
         <div class="right">
-            <p class="username">Olivia Manoa <span>à publier une nouvelle photo</span></p>
-            <p class="location">Italy , 41493308 , 2,44905 <span>1j</span></p>
+            <p class="username">{{ name }} <span>{{ content }}</span></p>
+            <p class="location"> <b>{{ place }} </b></p>
         </div>
     </div>
 </template>
 <script>
 export default {
-    name: 'notifComponent'
+    name: 'notifComponent',
+    props: {
+        content: String,
+        name: String,
+        place: String,
+        profilePicture: String
+    },
 }
 </script>
 <style scoped>
@@ -20,7 +26,8 @@ export default {
     width: 100%;
     height: 100px;
     width: 100%;
-    border-top: solid 2px #49BFC1;
+    border-bottom: solid 1px #49BFC1;
+    border-top: solid 1px #49BFC1;
 }
 
 .avatar {
@@ -35,7 +42,6 @@ export default {
 .location {
     font-size: 14px;
     margin-top: 10px;
-    font-style: italic;
 }
 
 span {

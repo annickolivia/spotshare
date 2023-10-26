@@ -1,8 +1,11 @@
 <template>
     <NavbarNew />
     <div class="form">
-        <textarea rows="4" name="" id=""></textarea>
+        <input class="input" placeholder="Où êtes vous?" type="text" name="text" required="">
+        <textarea rows="4" name="" id="" placeholder="Description..."></textarea>
+
         <button @click="publier" v-if="isLoading == false">Publier</button>
+
         <button v-else>Loading...</button>
         <input id="fileInput" type="file" ref="fileInput" @change="onFileChange" multiple accept="image/*" />
         <label for="fileInput" class="inputFile">
@@ -45,7 +48,7 @@ export default {
         },
         publier() {
             this.isLoading = true
-            setTimeout(() => location.href = "/accueil", 2000)
+            setTimeout(() => this.$router.push('/accueil'), 2000)
         }
     }
 }
@@ -59,6 +62,29 @@ export default {
     flex-direction: column;
     height: calc(100vh - 100px);
     overflow-x: scroll;
+}
+
+.input {
+    background-color: rgb(240, 240, 240);
+    height: 40px;
+    width: calc(85% - 8px);
+    margin-top: 16px;
+    border-radius: 10px;
+    border: solid 2px #49BFC1;
+    color: rgb(110, 110, 110);
+    font-size: 1em;
+    padding-left: 8px;
+}
+
+textarea {
+    width: calc(85% - 16px);
+    padding: 16px 8px;
+    font-size: 1em;
+    border: solid 2px #49BFC1;
+    border-radius: 10px;
+
+    margin-top: 16px;
+    min-height: 150px;
 }
 
 #fileInput {
@@ -89,7 +115,7 @@ button,
     background-color: #49bfc1;
     border: none;
     color: white;
-    margin-top: 32px;
+    margin-top: 16px;
     border-radius: 8px;
     cursor: pointer;
     transition: ease all .3s;
@@ -108,15 +134,9 @@ button:hover {
     background-color: #3c999b;
 }
 
-textarea {
-    width: 85%;
-    padding: 16px;
-    font-size: 20px;
-    min-height: 150px;
-}
 
 .selectedImages {
-    margin-top: 32px;
+    margin-top: 16px;
     display: flex;
     flex-wrap: wrap;
     width: 100%;

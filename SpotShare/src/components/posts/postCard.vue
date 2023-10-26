@@ -41,7 +41,7 @@ export default {
     methods: {
         viewUser() {
             localStorage.setItem('name', this.name)
-            location.href = "/profil"
+            this.$router.push('/profil');
         },
         like() {
             if (this.isLikedData == true) {
@@ -57,7 +57,8 @@ export default {
             localStorage.setItem('profilePicture', this.profilePicture)
             localStorage.setItem('image', this.image)
             localStorage.setItem('isLiked', this.isLikedData)
-            location.href = '/post'
+            this.$router.push('/post');
+
         }
     }
 }

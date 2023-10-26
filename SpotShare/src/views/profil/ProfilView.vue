@@ -38,7 +38,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 150px;
+    margin-top: 100px;
     box-shadow: 0px 1px 0px 1px rgb(179, 179, 179);
 }
 

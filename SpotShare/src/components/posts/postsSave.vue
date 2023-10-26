@@ -11,21 +11,13 @@ export default {
     name: 'PostsSaveComponent',
     data() {
         return {
-            publications: [],
-            name: ""
+            publications: post,
+            name: localStorage.getItem('name')
         }
     },
     mounted() {
-        this.name = localStorage.getItem('name')
-        this.publications = post
-        console.log(this.name);
-        console.log(this.publications)
-        for (let i = 0; i < post.length; i++) {
-            if (post[i].name == this.name) {
-                this.publications.push(post[i])
-            }
-
-        }
+        const result = this.publications.filter(item => item.name === this.name);
+        this.publications = result
     },
     methods: {
 
@@ -36,7 +28,8 @@ export default {
             localStorage.setItem('profilePicture', this.publications[i].profilePicture)
             localStorage.setItem('image', this.publications[i].image)
             localStorage.setItem('isLiked', this.publications[i].isLikedData)
-            location.href = '/post'
+            this.$router.push('/post');
+
         }
     }
 }
@@ -47,11 +40,15 @@ export default {
 .image {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 100px;
 }
 
 img {
-    width: 200px;
-    height: 200px;
+    width: 45%;
+    height: 100%;
+    aspect-ratio: 1/1;
     object-fit: cover;
+    margin: 4px;
 }
 </style>

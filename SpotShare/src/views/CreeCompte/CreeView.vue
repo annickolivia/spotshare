@@ -60,7 +60,8 @@ const confirmpassword = ref('');
 
 function CreeCompte() {
     startValidation.value = true;
-    location.href = "/accueil"
+    this.$router.push('/accueil');
+
 
 }
 const isValidEmail = computed(() => {
